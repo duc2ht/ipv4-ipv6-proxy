@@ -1,3 +1,11 @@
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=1024k
+mkswap /swapfile
+swapon /swapfile
+echo /swapfile none swap defaults 0 0 >> /etc/fstab
+chown root:root /swapfile 
+chmod 0600 /swapfile
+sysctl vm.swappiness=10
+
 cd /etc/yum.repos.d/
 sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
