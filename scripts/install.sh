@@ -1,3 +1,8 @@
+cd /etc/yum.repos.d/
+sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+yum install iptables
+
 #!/bin/sh
 random() {
 	tr </dev/urandom -dc A-Za-z0-9 | head -c5
