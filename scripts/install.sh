@@ -2,6 +2,9 @@ cd /etc/yum.repos.d/
 sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 yum install iptables
+rpm -qa| grep -i 3proxy
+yum install epel-release -y
+yum install 3proxy
 
 #!/bin/sh
 random() {
